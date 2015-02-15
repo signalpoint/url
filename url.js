@@ -7,7 +7,7 @@ function url_field_formatter_view(entity_type, entity, field, instance, langcode
     var element = {};
     $.each(items, function(delta, item) {
         element[delta] = {
-          markup: theme('url', { item: item })
+          markup: theme('url', item)
         };
     });
     return element;
@@ -20,10 +20,10 @@ function url_field_formatter_view(entity_type, entity, field, instance, langcode
  */
 function theme_url(variables) {
   try {
-    var title = variables.item.title ? variables.item.title : variables.item.value;
+    var title = variables.title ? variables.title : variables.value;
     return theme('button_link', {
         text: title,
-        path: variables.item.value,
+        path: variables.value,
         options: {
           InAppBrowser: true
         }
